@@ -139,7 +139,7 @@ console.log(userid)
   console.log(data)
  })*/
 
-db.collection('cart').find({$and:[{'userid':ObjectID(userid)},{'product._id':ObjectId(id)}]}).toArray().then(async(data)=>{
+db.collection('cart').find({$and:[{'userid':ObjectId(userid)},{'product._id':ObjectId(id)}]}).toArray().then(async(data)=>{
  // console.log(data)
   console.log('check cart of user')
   if(data.length!=0)
@@ -148,7 +148,7 @@ db.collection('cart').find({$and:[{'userid':ObjectID(userid)},{'product._id':Obj
   }
   else
   {
-    db.collection('taste').findOne({'_id':ObjectID(id)})
+    db.collection('taste').findOne({'_id':ObjectId(id)})
     .then(async(dish)=>{
      // console.log(dish);
       console.log('item not already present, so trying to insert it')
