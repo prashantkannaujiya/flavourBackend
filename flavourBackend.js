@@ -139,7 +139,7 @@ console.log(userid)
   console.log(data)
  })*/
 
-db.collection('cart').find({$and:[{'userid':ObjectId(userid)},{'product._id':ObjectId(id)}]}).toArray().then(async(data)=>{
+db.collection('cart').find({$and:[{'userid':ObjectID(userid)},{'product._id':ObjectID(id)}]}).toArray().then(async(data)=>{
  // console.log(data)
   console.log('check cart of user')
   if(data.length!=0)
