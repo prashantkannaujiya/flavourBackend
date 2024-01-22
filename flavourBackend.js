@@ -35,7 +35,7 @@ const seedDB=async()=>
             data[i][j].category=category[i];
         }
     }
-   console.log(data)
+   
 const p=data.flat(1); //merge all nested arrays into a single array
 
 await db.collection('taste').insertMany(p);
