@@ -3,7 +3,7 @@ var app=express();
 var bodyParser=require('body-parser');
 var cors=require('cors');
 var MongoClient=require('mongodb').MongoClient;
-var url="mongodb://127.0.0.1:27017/";  
+var url='mongodb+srv://Prashant_Kannaujiya:Rajan$9935@cluster0.aweosln.mongodb.net/?retryWrites=true&w=majority';  
 var jwt=require('jsonwebtoken');
 const { ObjectId } = require('mongodb');
 const { ObjectID } = require('bson');
