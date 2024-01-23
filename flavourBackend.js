@@ -22,6 +22,7 @@ const seedDB=async()=>
 {var i=0;
  
       await db.collection('taste').deleteMany({});
+      await db.collection('cart').deleteMany({});
       for( i=0;i<category.length;i++)
       {
         d.push( fetch('https://adorable-bat-fatigues.cyclic.app/'+category[i]).then(res=>res.json()))
@@ -130,6 +131,7 @@ app.post('/login',(req,res)=>{
 })
 
 app.get('/addToCart/:product/:user',async(req,res)=>{
+  console.log(typeof(req.params.product))
 const id=req.params.product;
 const userid=req.params.user;
 console.log(typeof(id))
@@ -139,7 +141,7 @@ console.log(userid)
   console.log(data)
  })*/
 
-db.collection('cart').find({$and:[{'userid':ObjectID(userid)},{'product._id':ObjectID(id)}]}).toArray().then(async(data)=>{
+db.collection('cart').find({$and:[{'userid':new ObjectId(userid)},{'product._id':new ObjectId(id)}]}).toArray().then(async(data)=>{
  // console.log(data)
   console.log('check cart of user')
   if(data.length!=0)
@@ -148,12 +150,12 @@ db.collection('cart').find({$and:[{'userid':ObjectID(userid)},{'product._id':Obj
   }
   else
   {
-    db.collection('taste').findOne({'_id':ObjectId(id)})
+    db.collection('taste').findOne({'_id':new ObjectId(id)})
     .then(async(dish)=>{
-     // console.log(dish);
+     //console.log(dish);
       console.log('item not already present, so trying to insert it')
      //console.log(typeof(data))
-    const k= await db.collection('cart').findOneAndUpdate({'userid':ObjectID(userid)},{$push:{product:dish}})
+    const k= await db.collection('cart').findOneAndUpdate({'userid':new ObjectId(userid)},{$push:{product:dish}})
     res.send({message:'done'})
      console.log(k)
     })
@@ -175,7 +177,7 @@ res.send({message:'success'})
 
 app.get('/cartProduct/:user',(req,res)=>{
 const user=req.params.user;
-db.collection('cart').find({userid:ObjectId(user)}).toArray().then((data)=>{
+db.collection('cart').find({userid:new ObjectId(user)}).toArray().then((data)=>{
   console.log(data)
   res.send(data[0].product)
 }).catch(e=>console.log(e))
@@ -184,7 +186,7 @@ db.collection('cart').find({userid:ObjectId(user)}).toArray().then((data)=>{
 app.get('/cartRemove/:user/:id',async(req,res)=>{
   console.log(typeof(req.params.id))
   
- db.collection('cart').update({userid:ObjectId(req.params.user)},{$pull:{product:{_id:ObjectId(req.params.id)}}}).then((data)=>{
+ db.collection('cart').findOneAndUpdate({userid:new ObjectId(req.params.user)},{$pull:{product:{_id:new ObjectId(req.params.id)}}}).then((data)=>{
   console.log(data)
   res.send({message:'cart-updated'})
  }).catch(e=>console.log(e))
