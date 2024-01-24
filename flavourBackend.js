@@ -152,7 +152,7 @@ db.collection('cart').find({$and:[{'userid':new ObjectId(userid)},{'product._id'
   {
     db.collection('taste').findOne({'_id':new ObjectId(id)})
     .then(async(dish)=>{
-     //console.log(dish);
+     console.log(dish);
       console.log('item not already present, so trying to insert it')
      //console.log(typeof(data))
     const k= await db.collection('cart').findOneAndUpdate({'userid':new ObjectId(userid)},{$push:{product:dish}})
