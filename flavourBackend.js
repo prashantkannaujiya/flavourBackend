@@ -179,7 +179,7 @@ app.get('/cartProduct/:user',(req,res)=>{
 const user=req.params.user;
 db.collection('cart').find({userid:new ObjectId(user)}).toArray().then((data)=>{
   console.log(data)
-  if(data.hasOwnProperty('product'))
+  if(data[0].hasOwnProperty('product'))
   {
     res.send(data[0].product)
   }
