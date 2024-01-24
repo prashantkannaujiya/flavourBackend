@@ -22,7 +22,7 @@ const seedDB=async()=>
 {var i=0;
  
       await db.collection('taste').deleteMany({});
-      await db.collection('cart').deleteMany({});
+    
       for( i=0;i<category.length;i++)
       {
         d.push( fetch('https://adorable-bat-fatigues.cyclic.app/'+category[i]).then(res=>res.json()))
@@ -179,7 +179,15 @@ app.get('/cartProduct/:user',(req,res)=>{
 const user=req.params.user;
 db.collection('cart').find({userid:new ObjectId(user)}).toArray().then((data)=>{
   console.log(data)
-  res.send(data[0].product)
+  if(data.hasOwnProperty('product'))
+  {
+    res.send(data[0].product)
+  }
+  else
+  {
+    res.send([])
+  }
+ 
 }).catch(e=>console.log(e))
 })
 
