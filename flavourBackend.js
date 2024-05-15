@@ -13,7 +13,18 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 var db;
-const category=['bbqs','best-foods','breads','burgers','chocolates','desserts','drinks','fried-chicken','ice-cream','pizzas','sandwiches','sausages','steaks','our-foods'];
+const category=[];
+(()=>{
+fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list')
+.then(res=>res.json())
+.then((data)=>{
+data.meals.forEach((a)=>{
+  category.push(a.strCategory)
+})
+
+})
+})();
+
 
 const client = new MongoClient(url);
 db=client.db('flavour');
@@ -22,22 +33,24 @@ const seedDB=async()=>
 {var i=0;
  
       await db.collection('taste').deleteMany({});
-    
+      let y=[]
       for( i=0;i<category.length;i++)
       {
-        d.push( fetch('https://adorable-bat-fatigues.cyclic.app/'+category[i]).then(res=>res.json()))
+        d.push(fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c='+category[i]).then(res=>res.json()))
       }
   Promise.all(d).then(async(data)=>{
     
-    for(var i=0;i<category.length;i++)
+  for(var i=0;i<category.length;i++)
     {
-        for(var j=0;j<data[i].length;j++)
+        for(var j=0;j<data[i].meals.length;j++)
         {
-            data[i][j].category=category[i];
+            data[i].meals[j].category=category[i];
+            data[i].meals[j].price=Math.floor(Math.random() * 200);
         }
+        y.push(data[i].meals)
     }
-   
-const p=data.flat(1); //merge all nested arrays into a single array
+   console.log(y)
+const p=y.flat(1); //merge all nested arrays into a single array
 
 await db.collection('taste').insertMany(p);
 
