@@ -217,7 +217,7 @@ app.get('/cartRemove/:user/:id',async(req,res)=>{
 app.get('/searchFood/:search',async(req,res)=>{
   const search=req.params.search;
 
-  await db.collection('taste').createIndex({'category':'text','dsc':'text','id':'text','name':'text'})
+  await db.collection('taste').createIndex({'category':'text','idMeal':'text','strMeal':'text'})
   db.collection('taste').find({$text:{$search:search}}).toArray().then((data)=>{
     console.log(data)
     res.send(data)
