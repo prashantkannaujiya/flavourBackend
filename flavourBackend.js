@@ -14,7 +14,7 @@ app.set("views", "./views");
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "./hello.html")));
+// app.use(express.static(path.join(__dirname, "./hello.html")));
 var db;
 const crypto = require("crypto");
 const config = {
@@ -72,6 +72,9 @@ const seedDB = async () => {
   //console.log(w)
 })();
 
+app.get('/',(req,res)=>{
+  res.send('<h1>Hi!! , server is on</h1>')
+})
 app.get("/fetch/:cat/:price", async (req, res) => {
   const category = req.params.cat;
   console.log(typeof category);
