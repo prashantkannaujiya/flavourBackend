@@ -432,3 +432,4 @@ app.get("/order", async (req, res) => {
 app.listen(PORT, () => {
   console.log("server running");
 });
+module.exports = app
