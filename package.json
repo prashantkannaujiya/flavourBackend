@@ -2,9 +2,9 @@
   "name": "flavourbackend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "flavourBackend.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node flavourBackend.js"
   },
   "author": "",
   "license": "ISC",
