@@ -67,7 +67,7 @@ const seedDB = async () => {
   });
 };
 (async () => {
-  const p = await seedDB();
+  // const p = await seedDB();
   //const w=
   //console.log(w)
 })();
