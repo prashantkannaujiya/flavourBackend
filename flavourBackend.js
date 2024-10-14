@@ -73,7 +73,8 @@ const seedDB = async () => {
 })();
 
 app.get('/',(req,res)=>{
-  res.send('<h1>Hi!! , server is on</h1>')
+  // res.send('<h1>Hi!! , server is on</h1>')
+  res.sendFile(__dirname+'/home.html')
 })
 app.get("/fetch/:cat/:price", async (req, res) => {
   const category = req.params.cat;
