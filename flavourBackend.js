@@ -27,15 +27,15 @@ const instance = new Razorpay({
   key_secret: config.RAZOR_PAY_KEY_SECRET,
 });
 const category = [];
-(() => {
-  fetch("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
-    .then((res) => res.json())
-    .then((data) => {
-      data.meals.forEach((a) => {
-        category.push(a.strCategory);
-      });
-    });
-})();
+// (() => {
+//   fetch("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       data.meals.forEach((a) => {
+//         category.push(a.strCategory);
+//       });
+//     });
+// })();
 
 const client = new MongoClient(url);
 db = client.db("flavour");
