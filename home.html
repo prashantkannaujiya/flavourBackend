@@ -1,101 +1,132 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Flavour Backend</title>
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavour Backend</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <style>
-            li p{
-                padding: 0;
-                margin: 0;
-              
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        div p{
+            padding: 0;
+            margin: 0;
+
+        }
+        body{
+            
+        }
+
+        body * {
+            font-family: "Raleway", sans-serif;
+        }
+
+        p{
+            color: rgb(87, 86, 86);
+            padding: 0;
+            margin: 0;
+        }
+
+        .example {
+            animation: floating 2s linear infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(1vh);
             }
-            body *{
-                font-family: "Raleway", sans-serif;
+
+            50% {
+                transform: translateY(-1vh);
             }
-            p{
-                color:rgb(87, 86, 86);
+
+            100% {
+                transform: translateY(1vh);
             }
-            .example{
-                animation: floating 2s linear infinite;
-            }
-            @keyframes floating {
-                0%{
-                    transform: translateY(1vh);
-                }
-                50%{
-                    transform: translateY(-1vh);
-                }
-                100%{
-                    transform: translateY(1vh);
-                }
-            }
-        </style>
-        <!-- Bootstrap CSS (via CDN) -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-    </head>
-    <body class=" mb-5">
-       
-        <h2 class="text-center text-primary mt-5 mb-4">Welcome to Flavour</h2>
-        <h4 class="text-center mb-4">This is the backend site of Flavour</h4>
-        <p class="w-50 m-auto mb-3">Currently, there is no administrator support. But, there are a number of routes you can use to feed dummy data to your online food site or whatever. It got decent collection of food items and corresponding categories to use for testing frontend for its relatable features.</p>
-        <p class="w-50 m-auto ">It uses dummy data from mealdb and provides support for dummy payments using Razorpay, including support for cart. Creating user account is enabled too.</p>
-    <div class="bg-light mt-5 mb-5 w-50 m-auto text-white py-3 example ">
+        }
+    </style>
+    <!-- Bootstrap CSS (via CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class=" border-top pb-5 border-5 border-primary ">
+
+    <h2 class="text-center text-primary mt-5 display-2 mb-4">Welcome to Flavour</h2>
+    <h4 class="text-center mb-5">This is the backend site of Flavour</h4>
+    <p class="w-50 m-auto mb-3">Currently, there is no administrator support. But, there are a number of routes you can
+        use to feed dummy data to your online food site or whatever. It got decent collection of food items and
+        corresponding categories to use for testing frontend for its relatable features.</p>
+    <p class="w-50 m-auto mb-5 ">It uses dummy data from mealdb and provides support for dummy payments using Razorpay,
+        including support for cart. Creating user account is enabled too.</p>
+    <div class="bg-light mt-5 mb-5 w-50 m-auto text-white py-5 example shadow ">
         <p class="text-center bg-secondary text-white w-25 fw-bold mb-3 m-auto">Example</p>
-        <p class="w-75 m-1 px-1 m-auto fw-bold">fetch('https://flavour-backend.vercel.app/fetch/Chicken/-1')</p>
-        <p class="w-75 m-1 px-1 m-auto fw-bold">.then((res)=>{res.json()})</p>
-        <p class="w-75 m-1 px-1 m-auto fw-bold">.then((data)=>{'Your code here'})</p>
+        <p class="w-75 m-1 px-1 m-auto ">fetch('https://flavour-backend.vercel.app/fetch/Chicken/-1')</p>
+        <p class="w-75 m-1 px-1 m-auto ">.then((res)=>{res.json()})</p>
+        <p class="w-75 m-1 px-1 m-auto ">.then((data)=>{'Your code here'})</p>
     </div>
-        <h5 class="w-50 m-auto mt-4 mb-3">Routes available</h5>
-    <ul class="w-50 m-auto">
-        <li class=""><p class="text-light bg-secondary fw-bold px-1 py-1"> GET - /fetch/categoryName/priceRange</p>
-            <p class="mt-2">Set priceRange as -1 to have no price limit</p>
-            <p>Set priceRange as 0 for less than $50 </p>
-            <p>Set priceRange as 50 for in between $50 and $100.</p>
-            <p>Set priceRange as 100 for greater than $100.</p>
-            <p class="mb-3">Put categoryName exactly same as in menu</p>
-        </li>
-        <li><p class="text-light bg-secondary fw-bold px-1 py-1">POST - /register</p>
-            <p class="mt-2 mb-3">Register your customer</p>
-        </li>
-       <li> <p class="text-light bg-secondary fw-bold px-1 py-1">POST - /login</p>
-        <p class="mt-2 mb-3">Login your customer using credentials. It provides a login token on successful completition.</p>
-       </li>
-       <li><p class="text-light bg-secondary fw-bold px-1 py-1">GET - /auth/:token</p>
-        <p class="mt-2 mb-3">Enables auto login using token for a user logged in previously.</p>
-       </li>
-       <li><p class="text-light bg-secondary fw-bold px-1 py-1">GET - /addToCart/:product/:user/</p>
-        
-        <p class="mt-2 mb-3">
-            Add products to cart of a user using product id and user id.
-        </p>
-       </li>
-<li><p class="text-light bg-secondary fw-bold px-1 py-1">GET -  /cartupdate/:productid/:userid/:quantity</p>
-   
+    <h5 class="w-50 m-auto mt-5 mb-3">Routes available</h5>
+    <div class="w-50 m-auto shadow p-4">
+    <p class="">
+    <p class="text-light bg-secondary  px-1 py-1"> GET - /fetch/categoryName/priceRange</p>
+    <p class="mt-2">Set priceRange as -1 to have no price pmit</p>
+    <p>Set priceRange as 0 for less than $50 </p>
+    <p>Set priceRange as 50 for in between $50 and $100.</p>
+    <p>Set priceRange as 100 for greater than $100.</p>
+    <p class="mb-3">Put categoryName exactly same as in menu</p>
+    </p>
+
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">POST - /register</p>
+    <p class="mt-2 mb-3">Register your customer</p>
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">POST - /login</p>
+    <p class="mt-2 mb-3">Login your customer using credentials. It provides a login token on successfp completition.</p>
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">GET - /auth/:token</p>
+    <p class="mt-2 mb-3">Enables auto login using token for a user logged in previously.</p>
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">GET - /addToCart/:product/:user/</p>
+
+    <p class="mt-2 mb-3">
+        Add products to cart of a user using product id and user id.
+    </p>
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">GET - /cartupdate/:productid/:userid/:quantity</p>
+
     <p class="mt-2 mb-3">Update quantity of a product in cart.</p>
-</li>
-<li><p class="text-light bg-secondary fw-bold px-1 py-1">GET -   /cartProduct/:user</p>
-  
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">GET - /cartProduct/:user</p>
+
     <p class="mt-2 mb-3">Fetch all the products in a user's cart, provided, user is logged in.</p>
-</li>
-<li><p class="text-light bg-secondary fw-bold px-1 py-1">GET - /cartRemove/:user/:id</p>
-    
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">GET - /cartRemove/:user/:id</p>
+
     <p class="mt-2 mb-3">Remove a product from a cart by providing user id and product id as params.</p>
-</li>
-<li><p class="text-light bg-secondary fw-bold px-1 py-1">GET - /searchFood/:search</p>
-    
-    <p class="mt-2 mb-3">Search for a particular food item, category or anything that matches the description of your food item. </p>
-</li>
-<li><p class="text-light bg-secondary fw-bold px-1 py-1">GET -  /order</p>
-   
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">GET - /searchFood/:search</p>
+
+    <p class="mt-2 mb-3">Search for a particpar food item, category or anything that matches the description of your
+        food item. </p>
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">GET - /order</p>
+
     <p class="mt-2 mb-3">Place order for payment to Razorpay payment gateway.</p>
-</li>
-<li><p class="text-light bg-secondary fw-bold px-1 py-1">GET - /success</p>
-    
+    </p>
+    <p>
+    <p class="text-light bg-secondary  px-1 py-1">GET - /success</p>
+
     <p class="mt-2 mb-3">Verify payment for any discrepency and confirm it.</p>
-</li>
-    </ul>
-    </body>
+    </p>
+</div>
+</body>
+
 </html>
