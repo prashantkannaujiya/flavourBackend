@@ -23,7 +23,7 @@
         }
 
         p{
-            color: rgb(87, 86, 86);
+            color: rgb(58, 57, 57);
             padding: 0;
             margin: 0;
         }
@@ -34,15 +34,15 @@
 
         @keyframes floating {
             0% {
-                transform: translateY(1vh);
+                transform: translateX(1vh);
             }
 
             50% {
-                transform: translateY(-1vh);
+                transform: translateX(-1vh);
             }
 
             100% {
-                transform: translateY(1vh);
+                transform: translateX(1vh);
             }
         }
     </style>
@@ -59,8 +59,8 @@
         corresponding categories to use for testing frontend for its relatable features.</p>
     <p class="w-50 m-auto mb-5 ">It uses dummy data from mealdb and provides support for dummy payments using Razorpay,
         including support for cart. Creating user account is enabled too.</p>
-    <div class="bg-light mt-5 mb-5 w-50 m-auto text-white py-5 example shadow ">
-        <p class="text-center bg-secondary text-white w-25 fw-bold mb-3 m-auto">Example</p>
+    <div class="bg- mt-5 mb-5 w-50 m-auto text-white py-5 example shadow ">
+        <p class="text-center bg-primary text-white w-25 fw- mb-3 m-auto">Example</p>
         <p class="w-75 m-1 px-1 m-auto ">fetch('https://flavour-backend.vercel.app/fetch/Chicken/-1')</p>
         <p class="w-75 m-1 px-1 m-auto ">.then((res)=>{res.json()})</p>
         <p class="w-75 m-1 px-1 m-auto ">.then((data)=>{'Your code here'})</p>
@@ -68,7 +68,7 @@
     <h5 class="w-50 m-auto mt-5 mb-3">Routes available</h5>
     <div class="w-50 m-auto shadow p-4">
     <p class="">
-    <p class="text-light bg-secondary  px-1 py-1"> GET - /fetch/categoryName/priceRange</p>
+    <p class="text-light bg-primary  px-1 py-1"> GET - /fetch/categoryName/priceRange</p>
     <p class="mt-2">Set priceRange as -1 to have no price pmit</p>
     <p>Set priceRange as 0 for less than $50 </p>
     <p>Set priceRange as 50 for in between $50 and $100.</p>
@@ -77,52 +77,52 @@
     </p>
 
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">POST - /register</p>
+    <p class="text-light bg-primary  px-1 py-1">POST - /register</p>
     <p class="mt-2 mb-3">Register your customer</p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">POST - /login</p>
+    <p class="text-light bg-primary  px-1 py-1">POST - /login</p>
     <p class="mt-2 mb-3">Login your customer using credentials. It provides a login token on successfp completition.</p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">GET - /auth/:token</p>
+    <p class="text-light bg-primary  px-1 py-1">GET - /auth/:token</p>
     <p class="mt-2 mb-3">Enables auto login using token for a user logged in previously.</p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">GET - /addToCart/:product/:user/</p>
+    <p class="text-light bg-primary  px-1 py-1">GET - /addToCart/:product/:user/</p>
 
     <p class="mt-2 mb-3">
         Add products to cart of a user using product id and user id.
     </p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">GET - /cartupdate/:productid/:userid/:quantity</p>
+    <p class="text-light bg-primary  px-1 py-1">GET - /cartupdate/:productid/:userid/:quantity</p>
 
     <p class="mt-2 mb-3">Update quantity of a product in cart.</p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">GET - /cartProduct/:user</p>
+    <p class="text-light bg-primary  px-1 py-1">GET - /cartProduct/:user</p>
 
     <p class="mt-2 mb-3">Fetch all the products in a user's cart, provided, user is logged in.</p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">GET - /cartRemove/:user/:id</p>
+    <p class="text-light bg-primary  px-1 py-1">GET - /cartRemove/:user/:id</p>
 
     <p class="mt-2 mb-3">Remove a product from a cart by providing user id and product id as params.</p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">GET - /searchFood/:search</p>
+    <p class="text-light bg-primary  px-1 py-1">GET - /searchFood/:search</p>
 
     <p class="mt-2 mb-3">Search for a particpar food item, category or anything that matches the description of your
         food item. </p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">GET - /order</p>
+    <p class="text-light bg-primary  px-1 py-1">GET - /order</p>
 
     <p class="mt-2 mb-3">Place order for payment to Razorpay payment gateway.</p>
     </p>
     <p>
-    <p class="text-light bg-secondary  px-1 py-1">GET - /success</p>
+    <p class="text-light bg-primary  px-1 py-1">GET - /success</p>
 
     <p class="mt-2 mb-3">Verify payment for any discrepency and confirm it.</p>
     </p>
