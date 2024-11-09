@@ -1,169 +1,174 @@
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flavour Backend</title>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      div p {
-        padding: 0;
-        margin: 0;
-      }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flavour Backend</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Reset padding and margin */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Raleway", sans-serif;
+    }
 
-      body {
-      }
+    /* Body Styling */
+    body {
+      background-color: #f9f9fb;
+      color: #333;
+      line-height: 1.6;
+    }
 
-      body * {
-        font-family: "Raleway", sans-serif;
-      }
+    /* Header Styling */
+    h2, h4 {
+      color: #007bff;
+    }
 
-      p {
-        color: rgb(58, 57, 57);
-        padding: 0;
-        margin: 0;
-      }
+    h2 {
+      font-weight: 700;
+      font-size: 3rem;
+    }
 
-      .example {
-        animation: floating 2s linear infinite;
-      }
+    h4 {
+      font-weight: 400;
+    }
 
-      @keyframes floating {
-        0% {
-          transform: translateX(1vh);
-        }
+    /* Card Styling */
+    .info-card {
+      background-color: #f1f1f5;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
+    }
 
-        50% {
-          transform: translateX(-1vh);
-        }
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
 
-        100% {
-          transform: translateX(1vh);
-        }
-      }
-    </style>
-    <!-- Bootstrap CSS (via CDN) -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
+    /* Main Content Styling */
+    .main-content {
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
 
-  <body class="border-top pb-5 border-5 border-primary">
-    <h2 class="text-center text-primary mt-5 fw-bold display-2 mb-4">
-      Welcome to Flavour
-    </h2>
-    <h4 class="text-center mb-5">This is the backend site of Flavour</h4>
-    <p class="w-100 m-auto mt-4 mb-3 fs-4 px-5">
-      Currently, there is no administrator support. But, there are a number of
-      routes you can use to feed dummy data to your online food site or
-      whatever. It got decent collection of food items and corresponding
-      categories to use for testing frontend for its relatable features.
-    </p>
-    <p class="w-100 m-auto mb-5 fs-4 px-5">
-      It uses dummy data from mealdb and provides support for dummy payments
-      using Razorpay, including support for cart. Creating user account is
-      enabled too.
-    </p>
-    <div class="bg- mt-5 mb-5 w-75 m-auto text-white py-5 example shadow">
-      <p class="text-center bg-primary text-white w-75 fw- mb-3 m-auto">
-        Example
+    .example {
+      font-family: monospace;
+      padding: 1rem;
+      background-color: #444;
+      border-radius: 8px;
+      color: #ddd;
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    /* Floating Animation */
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Route Buttons */
+    .route-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .route-button:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="text-center py-5">
+    <h2>Welcome to Flavour</h2>
+    <h4>This is the backend site of Flavour</h4>
+  </header>
+
+  <main class="container">
+    <!-- Main Description -->
+    <div class="main-content text-center shadow mb-5">
+      <p class="fs-5 mb-3">
+        Currently, there is no administrator support. But, there are routes you can use to feed dummy data to your online food site. It includes a decent collection of food items and categories for testing frontend features.
       </p>
-      <p class="w-75 m-1 px-1 m-auto">
-        fetch('https://flavour-backend.vercel.app/fetch/Chicken/-1')
+      <p class="fs-5">
+        It also supports dummy payments via Razorpay, including cart functionality and user account creation.
       </p>
-      <p class="w-75 m-1 px-1 m-auto">.then((res)=>{res.json()})</p>
-      <p class="w-75 m-1 px-1 m-auto">.then((data)=>{'Your code here'})</p>
     </div>
-    <h5 class="w-75 m-auto mt-5 mb-">Routes available</h5>
-    <div class="w-75 m-auto p- mt-4">
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">
-          GET - /fetch/categoryName/priceRange
-        </p>
-        <p class="mt-2">Set priceRange as -1 to have no price pmit</p>
-        <p>Set priceRange as 0 for less than $50</p>
-        <p>Set priceRange as 50 for in between $50 and $100.</p>
-        <p>Set priceRange as 100 for greater than $100.</p>
-        <p class="mb-">Put categoryName exactly same as in menu</p>
-      </div>
 
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">POST - /register</p>
-        <p class="mt-2 mb-">Register your customer</p>
-      </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">POST - /login</p>
-        <p class="mt-2 mb">
-          Login your customer using credentials. It provides a login token on
-          successfp completition.
-        </p>
-      </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">GET - /auth/:token</p>
-        <p class="mt-2 mb">
-          Enables auto login using token for a user logged in previously.
-        </p>
-      </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">
-          GET - /addToCart/:product/:user/
-        </p>
+    <!-- Example Section -->
+    <section class="example text-center mb-5 shadow">
+      <p class="fw-bold text-primary">Example</p>
+      <code class="text-info">
+        fetch('https://flavour-backend.vercel.app/fetch/Chicken/-1')<br>
+        .then((res) => res.json())<br>
+        .then((data) => 'Your code here');
+      </code>
+    </section>
 
-        <p class="mt-2 mb-">
-          Add products to cart of a user using product id and user id.
-        </p>
+    <!-- Routes Available -->
+    <h5 class="text-primary fw-bold">Routes Available</h5>
+    <div class="mb-5">
+      <div class="info-card">
+        <p class="route-button">GET - /fetch/categoryName/priceRange</p>
+        <p class="mt-2">Set priceRange to -1 for no limit, 0 for below $50, 50 for $50-$100, or 100 for above $100. Ensure categoryName matches menu exactly.</p>
       </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">
-          GET - /cartupdate/:productid/:userid/:quantity
-        </p>
-
-        <p class="mt-2 mb-">Update quantity of a product in cart.</p>
+      <div class="info-card">
+        <p class="route-button">POST - /register</p>
+        <p>Register your customer.</p>
       </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">GET - /cartProduct/:user</p>
-
-        <p class="mt-2 mb-">
-          Fetch all the products in a user's cart, provided, user is logged in.
-        </p>
+      <div class="info-card">
+        <p class="route-button">POST - /login</p>
+        <p>Login with credentials, returns a token upon successful login.</p>
       </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">
-          GET - /cartRemove/:user/:id
-        </p>
-
-        <p class="mt-2 mb-">
-          Remove a product from a cart by providing user id and product id as
-          params.
-        </p>
+      <div class="info-card">
+        <p class="route-button">GET - /auth/:token</p>
+        <p>Auto login with token for previously logged-in users.</p>
       </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">GET - /searchFood/:search</p>
-
-        <p class="mt-2 mb-">
-          Search for a particpar food item, category or anything that matches
-          the description of your food item.
-        </p>
+      <div class="info-card">
+        <p class="route-button">GET - /addToCart/:product/:user/</p>
+        <p>Add product to cart using product and user IDs.</p>
       </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">GET - /order</p>
-
-        <p class="mt-2 mb-">
-          Place order for payment to Razorpay payment gateway.
-        </p>
+      <div class="info-card">
+        <p class="route-button">GET - /cartupdate/:productid/:userid/:quantity</p>
+        <p>Update product quantity in cart.</p>
       </div>
-      <div class="shadow mb-3 p-4">
-        <p class="text-light bg-primary px-1 py-1">GET - /success</p>
-
-        <p class="mt-2 mb-">
-          Verify payment for any discrepency and confirm it.
-        </p>
+      <div class="info-card">
+        <p class="route-button">GET - /cartProduct/:user</p>
+        <p>Retrieve all items in a user’s cart (login required).</p>
+      </div>
+      <div class="info-card">
+        <p class="route-button">GET - /cartRemove/:user/:id</p>
+        <p>Remove product from cart by user and product IDs.</p>
+      </div>
+      <div class="info-card">
+        <p class="route-button">GET - /searchFood/:search</p>
+        <p>Search for food items by name, category, or description.</p>
+      </div>
+      <div class="info-card">
+        <p class="route-button">GET - /order</p>
+        <p>Initiate order for payment via Razorpay.</p>
+      </div>
+      <div class="info-card">
+        <p class="route-button">GET - /success</p>
+        <p>Confirm payment to resolve any discrepancies.</p>
       </div>
     </div>
-  </body>
+  </main>
+</body>
 </html>
