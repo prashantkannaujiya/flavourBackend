@@ -166,7 +166,7 @@ app.post("/login", (req, res) => {
           const token = jwt.sign(p._id, "Vishnu");
           res.send({ message: "success", user: data[0], token });
         } else {
-          res.send({ message: "Invalid credentials" });
+          res.send({ message: "Invalid Password" });
         }
       }
     });
